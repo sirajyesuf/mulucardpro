@@ -4,9 +4,12 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 
 export default function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,12 +38,37 @@ export default function NavBar() {
                         <span className="text-white px-2 py-1 rounded" style={{ backgroundColor: '#9b87f5' }}>Pro</span>
                     </Link>
 
-                    {/* Navigation */}
-                    <div className="flex items-center gap-4">
+                    {/* Desktop Navigation */}
+                    <div className="hidden items-center gap-4 md:flex">
+                        <Button asChild className="text-white transition-colors hover:opacity-90" style={{ backgroundColor: 'var(--brand-purple)' }}>
+                            <Link href="https://demo.mulucard.com">MuluCard Pro Demo</Link>
+                        </Button>
                         <ThemeToggle />
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <button className="md:hidden text-gray-700 dark:text-gray-300" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+                <div className="glass animate-fade-in absolute top-full right-0 left-0 bg-gray-50 dark:bg-gray-900 p-4 shadow-md md:hidden">
+                    <div className="flex flex-col items-start gap-4 border-none">
+                        <Button asChild className="text-white transition-colors w-full justify-start hover:opacity-90" style={{ backgroundColor: 'var(--brand-purple)' }}>
+                            <Link href="/demo" onClick={() => setIsMenuOpen(false)}>
+                                MuluCard Pro Demo
+                            </Link>
+                        </Button>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-gray-600 dark:text-gray-400">Theme:</span>
+                            <ThemeToggle />
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </header>
     );

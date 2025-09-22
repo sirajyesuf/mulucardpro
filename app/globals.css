@@ -231,3 +231,17 @@
 .dark .text-muted-foreground {
   color: rgb(156, 163, 175);
 }
+
+/* Dark mode button enhancements */
+.dark .bg-brand-purple {
+  background-color: var(--brand-purple) !important;
+}
+
+.dark .hover\:bg-brand-purple-dark:hover {
+  background-color: var(--brand-purple-dark) !important;
+}
+
+/* Ensure button text is always white in dark mode */
+.dark .text-white {
+  color: white !important;
+}
