@@ -58,7 +58,7 @@ export default function NavBar() {
                 <div className="glass animate-fade-in absolute top-full right-0 left-0 bg-gray-50 dark:bg-gray-900 p-4 shadow-md md:hidden">
                     <div className="flex flex-col items-start gap-4 border-none">
                         <Button asChild className="text-white transition-colors w-full justify-start hover:opacity-90" style={{ backgroundColor: 'var(--brand-purple)' }}>
-                            <Link href="/demo" onClick={() => setIsMenuOpen(false)}>
+                            <Link href="https://mulucardpro-demo.vercel.app" onClick={() => setIsMenuOpen(false)}>
                                 MuluCard Pro Demo
                             </Link>
                         </Button>
