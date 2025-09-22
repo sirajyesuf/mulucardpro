@@ -41,7 +41,7 @@ export default function NavBar() {
                     {/* Desktop Navigation */}
                     <div className="hidden items-center gap-4 md:flex">
                         <Button asChild className="text-white transition-colors hover:opacity-90" style={{ backgroundColor: 'var(--brand-purple)' }}>
-                            <Link href="https://demo.mulucard.com">MuluCard Pro Demo</Link>
+                            <Link href="https://mulucardpro-demo.vercel.app">MuluCard Pro Demo</Link>
                         </Button>
                         <ThemeToggle />
                     </div>
